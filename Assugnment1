@@ -1,0 +1,59 @@
+import turtle
+
+def draw_triangle(color, size):
+    turtle.fillcolor(color)
+    turtle.begin_fill()
+    for _ in range(3):
+        turtle.forward(size)
+        turtle.left(120)
+    turtle.end_fill()
+
+def draw_tree():
+    turtle.speed(3)
+    turtle.bgcolor("skyblue")
+    
+    # 画树的底部（树干）
+    turtle.penup()
+    turtle.goto(-15, -150)
+    turtle.pendown()
+    turtle.color("saddle brown")
+    turtle.begin_fill()
+    for _ in range(2):
+        turtle.forward(30)
+        turtle.left(90)
+        turtle.forward(50)
+        turtle.left(90)
+    turtle.end_fill()
+
+    # 画树的三角形部分
+    turtle.penup()
+    turtle.goto(-100, -100)
+    turtle.pendown()
+    
+    draw_triangle("green", 200)  # 第一层
+    turtle.penup()
+    turtle.goto(-70, -20)         # 移动到第二层位置
+    turtle.pendown()
+    draw_triangle("green", 140)  # 第二层
+    turtle.penup()
+    turtle.goto(-40, 60)          # 移动到第三层位置
+    turtle.pendown()
+    draw_triangle("green", 80)    # 第三层
+
+    # 画星星
+    turtle.penup()
+    turtle.goto(-15, 100)
+    turtle.pendown()
+    turtle.color("yellow")
+    turtle.begin_fill()
+    for _ in range(5):
+        turtle.forward(30)
+        turtle.right(144)
+    turtle.end_fill()
+
+# 设置画布
+turtle.title("Christmas Tree")
+draw_tree()
+
+# 完成绘图
+turtle.done()
